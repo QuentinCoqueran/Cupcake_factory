@@ -1,6 +1,6 @@
-package model;
+package fr.esgi.cupcake.model;
 
-import java.util.List;
+import fr.esgi.cupcake.model.Cake;
 import java.util.Set;
 
 public class Bundle {

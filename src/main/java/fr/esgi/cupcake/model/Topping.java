@@ -1,4 +1,6 @@
-package model;
+package fr.esgi.cupcake.model;
+
+import java.util.Objects;
 
 public class Topping {
     private String nomTopping;
@@ -25,5 +27,16 @@ public class Topping {
         this.prix = prix;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Topping topping = (Topping) o;
+        return Objects.equals(nomTopping, topping.nomTopping) && Objects.equals(prix, topping.prix);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomTopping, prix);
+    }
 }
