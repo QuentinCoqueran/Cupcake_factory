@@ -18,6 +18,12 @@ public class Cake {
         this.toppingList = new HashSet<>();
     }
 
+    private Cake(String nom, Prix price, Set<Topping> toppingList){
+        this.nom = nom;
+        this.price = price;
+        this.toppingList = toppingList;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -55,11 +61,7 @@ public class Cake {
     }
 
     public Cake with(Topping topping){
-        Cake cake = new Cake(this.nom);
-        for (Topping top : this.toppingList){
-            cake.toppingList.add(top);
-        }
-        cake.setPrix(this.price);
+        Cake cake = new Cake(this.nom, this.price, this.toppingList);
         cake.toppingList.add(topping);
         return cake;
     }
