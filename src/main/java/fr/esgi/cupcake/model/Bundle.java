@@ -10,9 +10,9 @@ public class Bundle {
 
     public Bundle(List<Cake> cakes) {
         this.cakes = cakes;
-        this.prix = new Prix("Dollar", 0);
+        this.prix = new Prix("Dollar",  0.0);
         for(Cake cake : cakes) {
-            this.prix = this.prix.plus(cake.afficherPrix());
+            this.prix = this.prix.plus(cake.showPrice());
         }
         this.prix.setMontant(this.prix.getMontant()*0.90);
     }

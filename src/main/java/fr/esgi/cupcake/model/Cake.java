@@ -63,7 +63,7 @@ public class Cake {
         return cake;
     }
 
-    public Prix afficherPrix(){
+    public Prix showPrice(){
         for (Topping topping : this.toppingList){
             this.price = this.price.plus(topping.getPrix());
         }

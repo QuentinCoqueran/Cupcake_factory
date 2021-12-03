@@ -27,14 +27,14 @@ public class Factory {
     }
 
     public static Topping chocolat(){
-        return new Topping("Chocolate", new Prix("Dollar", 0.10));
+        return new Topping("Chocolate", new Prix("Dollar", (double) 0.1));
     }
 
     public static Topping peanuts(){
-        return new Topping("Peanuts", new Prix("Dollar", 0.20));
+        return new Topping("Peanuts", new Prix("Dollar", (double) 0.2));
     }
 
     public static Topping caramel(){
-        return new Topping("Caramel", new Prix("Dollar", 0.30));
+        return new Topping("Caramel", new Prix("Dollar", (double) 0.3));
     }
 }

@@ -11,25 +11,25 @@ public class Prix {
         this.montant = montant;
     }
 
-    public Prix plus(Prix prix){
-        if(prix.nDevise.equals(this.nDevise)){
-            return new Prix(this.nDevise, prix.montant + this.montant);
-        } else {
-            throw new IllegalArgumentException("Devise différentes");
-        }
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Prix prix = (Prix) o;
-        return montant == prix.montant && Objects.equals(nDevise, prix.nDevise);
+        return Double.compare(prix.montant, montant) == 0 && nDevise.equals(prix.nDevise);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(nDevise, montant);
+    }
+
+    public Prix plus(Prix prix){
+        if(prix.nDevise.equals(this.nDevise)){
+            return new Prix(this.nDevise,  (double) (prix.montant + this.montant));
+        } else {
+            throw new IllegalArgumentException("Devise différentes");
+        }
     }
 
     public String getnDevise() {
