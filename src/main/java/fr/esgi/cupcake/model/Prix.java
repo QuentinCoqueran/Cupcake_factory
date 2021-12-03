@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Prix {
     private String nDevise;
-    private int montant;
+    private double montant;
 
-    public Prix(String nDevise, int montant) {
+    public Prix(String nDevise, double montant) {
         this.nDevise = nDevise;
         this.montant = montant;
     }
@@ -40,11 +40,11 @@ public class Prix {
         this.nDevise = nDevise;
     }
 
-    public int getMontant() {
+    public double getMontant() {
         return montant;
     }
 
-    public void setMontant(int montant) {
+    public void setMontant(double montant) {
         this.montant = montant;
     }
 }

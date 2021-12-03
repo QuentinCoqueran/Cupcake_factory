@@ -1,20 +1,35 @@
 package fr.esgi.cupcake.model;
 
 import fr.esgi.cupcake.model.Cake;
-import java.util.Set;
+
+import java.util.List;
 
 public class Bundle {
-    Set<Cake> cakes;
+    private List<Cake> cakes;
+    private Prix prix;
 
-    public Bundle(Set<Cake> cakes) {
+    public Bundle(List<Cake> cakes) {
         this.cakes = cakes;
+        this.prix = new Prix("Dollar", 0);
+        for(Cake cake : cakes) {
+            this.prix = this.prix.plus(cake.afficherPrix());
+        }
+        this.prix.setMontant(this.prix.getMontant()*0.90);
     }
 
-    public Set<Cake> getCakes() {
+    public List<Cake> getCakes() {
         return cakes;
     }
 
-    public void setCakes(Set<Cake> cakes) {
+    public void setCakes(List<Cake> cakes) {
         this.cakes = cakes;
+    }
+
+    public Prix getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Prix prix) {
+        this.prix = prix;
     }
 }
