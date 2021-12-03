@@ -4,12 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Cake {
-    private String Nom;
+    private String nom;
     private Prix price;
     private Set<Topping> toppingList;
 
     public Cake(String nom) {
-        this.Nom = nom;
+        this.nom = nom;
         if(nom.equals("Cupcake")){
             this.price = new Prix("Dollar", 1);
         } else if (nom.equals("Cookie")) {
@@ -19,11 +19,11 @@ public class Cake {
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public String showRecipe() {
-        String result = "un" + this.Nom.toLowerCase();
+        String result = "un" + this.nom.toLowerCase();
         if(this.toppingList.size() > 0){
             result += " avec ";
         }
@@ -43,7 +43,7 @@ public class Cake {
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     public Prix getPrix() {
@@ -54,4 +54,20 @@ public class Cake {
         price = prix;
     }
 
+    public Cake with(Topping topping){
+        Cake cake = new Cake(this.nom);
+        for (Topping top : this.toppingList){
+            cake.toppingList.add(top);
+        }
+        cake.setPrix(this.price);
+        cake.toppingList.add(topping);
+        return cake;
+    }
+
+    public Prix afficherPrix(){
+        for (Topping topping : this.toppingList){
+            this.price = this.price.plus(topping.getPrix());
+        }
+        return this.price;
+    }
 }
