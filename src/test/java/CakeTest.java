@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class CakeTest {
 
     @Test void should_return_expired() {
         Cake cake = Factory.createCake("Cupcake with chocolate");
-        cake.setCookDate(LocalDate.of(2021, 11, 1));
+        cake.setCookDate(LocalDateTime.of(2021, 11, 1, 9, 30, 12));
         Assertions.assertTrue(cake.isExpired());
     }
 }

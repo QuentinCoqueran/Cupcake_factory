@@ -1,6 +1,7 @@
 package fr.esgi.cupcake.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +11,7 @@ public class Cake {
     private String nom;
     private Prix price;
     private Set<Topping> toppingList;
-    private LocalDate cookDate;
+    private LocalDateTime cookDate;
 
     public Cake(String nom) {
         this.nom = nom;
@@ -19,7 +20,7 @@ public class Cake {
         } else if (nom.equalsIgnoreCase("cookie")) {
             this.price = new Prix("Dollar", 2);
         }
-        this.cookDate = LocalDate.now();
+        this.cookDate = LocalDateTime.now();
         this.toppingList = new HashSet<>();
     }
 
@@ -62,11 +63,11 @@ public class Cake {
         price = prix;
     }
 
-    public LocalDate getCookDate() {
+    public LocalDateTime getCookDate() {
         return cookDate;
     }
 
-    public void setCookDate(LocalDate cookDate) {
+    public void setCookDate(LocalDateTime cookDate) {
         this.cookDate = cookDate;
     }
 
@@ -83,7 +84,11 @@ public class Cake {
         return this.price;
     }
 
+    public Boolean isBundleable() {
+        return this.cookDate.until(LocalDateTime.now(), ChronoUnit.HOURS) < 12;
+    }
+
     public Boolean isExpired(){
-        return this.cookDate.until(LocalDate.now(), ChronoUnit.DAYS) > 2;
+        return this.cookDate.until(LocalDateTime.now(), ChronoUnit.DAYS) > 2;
     }
 }
