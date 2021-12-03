@@ -1,20 +1,20 @@
 package model;
 
 import java.util.List;
+import java.util.Set;
 
 public class Bundle {
+    Set<Cake> cakes;
 
-    List<Cake> listOfCake;
-
-    public List<Cake> getListOfCake() {
-        return listOfCake;
+    public Bundle(Set<Cake> cakes) {
+        this.cakes = cakes;
     }
 
-    public void setListOfCake(List<Cake> listOfCake) {
-        this.listOfCake = listOfCake;
+    public Set<Cake> getCakes() {
+        return cakes;
     }
 
-    public Bundle(List<Cake> listOfCake) {
-        this.listOfCake = listOfCake;
+    public void setCakes(Set<Cake> cakes) {
+        this.cakes = cakes;
     }
 }
