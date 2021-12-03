@@ -1,8 +1,12 @@
 import fr.esgi.cupcake.Factory;
+import fr.esgi.cupcake.model.Bundle;
 import fr.esgi.cupcake.model.Cake;
 import fr.esgi.cupcake.model.Prix;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CakeTest {
 
@@ -30,5 +34,15 @@ public class CakeTest {
         Assertions.assertTrue(Math.abs(cake.showPrice().getMontant()- 1.1) < 0.00001);
         Assertions.assertTrue(Math.abs(cake2.showPrice().getMontant()- 2.3) < 0.00001);
         Assertions.assertTrue(Math.abs(cake3.showPrice().getMontant()- 2.4) < 0.00001);
+    }
+
+    @Test void should_return_bundle_price() {
+        Cake cake = Factory.createCake("Cupcake with chocolate");
+        Cake cake2 = Factory.createCake("Cookie with peanuts and chocolate");
+        List<Cake> cakes = new ArrayList<>();
+        cakes.add(cake);
+        cakes.add(cake2);
+        Bundle bundle = new Bundle(cakes);
+        Assertions.assertTrue(Math.abs(bundle.getPrix().getMontant()-3.06) < 0.00001);
     }
 }
