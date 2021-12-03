@@ -10,9 +10,9 @@ public class Cake {
 
     public Cake(String nom) {
         this.nom = nom;
-        if(nom.equals("Cupcake")){
+        if(nom.equalsIgnoreCase("cupcake")){
             this.price = new Prix("Dollar", 1);
-        } else if (nom.equals("Cookie")) {
+        } else if (nom.equalsIgnoreCase("cookie")) {
             this.price = new Prix("Dollar", 2);
         }
         this.toppingList = new HashSet<>();
@@ -29,19 +29,16 @@ public class Cake {
     }
 
     public String showRecipe() {
-        String result = "un" + this.nom.toLowerCase();
+        String result = this.nom;
         if(this.toppingList.size() > 0){
-            result += " avec ";
+            result += " with ";
         }
         int count = 0;
         for(Topping topping : this.toppingList){
-            if(this.toppingList.size() == 1) {
-                result += " du " + topping.getNomTopping();
-            }
-            else if(count + 1 >= this.toppingList.size()) {
-                result += " et du " + topping.getNomTopping();
+            if(count + 1 >= this.toppingList.size()) {
+                result += topping.getNomTopping().toLowerCase();
             } else {
-                result += " du " + topping.getNomTopping() + ",";
+                result += topping.getNomTopping().toLowerCase() + " and ";
             }
             count ++;
         }
