@@ -27,8 +27,8 @@ public class CakeTest {
         Cake cake = Factory.createCake("Cupcake with chocolate");
         Cake cake2 = Factory.createCake("Cookie with peanuts and chocolate");
         Cake cake3 = Factory.createCake("Cookie with caramel and chocolate");
-        Assertions.assertEquals(1.1, cake.showPrice().getMontant());
-        Assertions.assertEquals(2.3, cake2.showPrice().getMontant());
-        Assertions.assertEquals(2.4, cake3.showPrice().getMontant());
+        Assertions.assertTrue(Math.abs(cake.showPrice().getMontant()- 1.1) < 0.00001);
+        Assertions.assertTrue(Math.abs(cake2.showPrice().getMontant()- 2.3) < 0.00001);
+        Assertions.assertTrue(Math.abs(cake3.showPrice().getMontant()- 2.4) < 0.00001);
     }
 }
