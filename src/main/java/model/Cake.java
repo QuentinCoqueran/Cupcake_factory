@@ -1,13 +1,16 @@
 package model;
 
+import java.util.List;
+
 public class Cake {
     private String Nom;
-    private float Prix;
+    private float price;
+    private List<Topping> toppingList;
 
-
-    public Cake(String nom, float prix) {
-        Nom = nom;
-        Prix = prix;
+    public Cake(String nom, float price, List<Topping> toppingList) {
+        this.Nom = nom;
+        this.price = price;
+        this.toppingList = toppingList;
     }
 
     public String getNom() {
@@ -19,11 +22,11 @@ public class Cake {
     }
 
     public float getPrix() {
-        return Prix;
+        return price;
     }
 
     public void setPrix(float prix) {
-        Prix = prix;
+        price = prix;
     }
 
 }
