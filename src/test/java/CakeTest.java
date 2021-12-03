@@ -5,6 +5,7 @@ import fr.esgi.cupcake.model.Prix;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,5 +45,11 @@ public class CakeTest {
         cakes.add(cake2);
         Bundle bundle = new Bundle(cakes);
         Assertions.assertTrue(Math.abs(bundle.getPrix().getMontant()-3.06) < 0.00001);
+    }
+
+    @Test void should_return_expired() {
+        Cake cake = Factory.createCake("Cupcake with chocolate");
+        cake.setCookDate(LocalDate.of(2021, 11, 1));
+        Assertions.assertTrue(cake.isExpired());
     }
 }
