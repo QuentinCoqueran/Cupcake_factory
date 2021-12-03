@@ -1,4 +1,4 @@
-package fr.esgi.cupcake;
+package model;
 
 import java.util.List;
 
